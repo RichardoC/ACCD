@@ -2,3 +2,4 @@
 *.csv
 
 .ipynb_checkpoints/Richard's analysis code-checkpoint.ipynb
+data_export_cobercat/
