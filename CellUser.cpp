@@ -10,11 +10,15 @@ CellUser::CellUser() {
 
 }
 
+//importing each cell user from a line of input
 CellUser::CellUser(std::string line) {
     std::istringstream iss(line);
     iss >> m_timestamp;
-    int milliTimeStamp = m_timestamp/1000;
+    long milliTimeStamp = m_timestamp/1000;
     std::time_t m_dateTime = static_cast<time_t>(milliTimeStamp);
+
+    std::string temp;
+    iss>> temp;
 
     iss >> m_lat;
     iss >> m_lng;

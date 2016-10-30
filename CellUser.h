@@ -17,7 +17,7 @@ public:
 
 
 private:
-    int m_timestamp;
+    long m_timestamp;
     std::time_t m_dateTime;
     float m_lat;
     float m_lng;
