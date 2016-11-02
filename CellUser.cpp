@@ -13,34 +13,81 @@ CellUser::CellUser() {
 //importing each cell user from a line of input
 CellUser::CellUser(std::string line) {
     std::istringstream iss(line);
-    iss >> m_timestamp;
+
+    std::string temp;
+    getline(iss, temp,',');
+    m_timestamp = atol(temp.c_str());
+
     long milliTimeStamp = m_timestamp/1000;
     std::time_t m_dateTime = static_cast<time_t>(milliTimeStamp);
 
-    std::string temp;
-    iss>> temp;
 
-    iss >> m_lat;
-    iss >> m_lng;
-    iss >> m_signal_inst;
-    iss >> m_signal_min;
-    iss >> m_signal_max;
-    iss >> m_signal_average;
-    iss >> m_carrier;
-    iss >> m_full_carrier;
-    iss >> m_status;
-    iss >> m_net;
-    iss >> m_net_type;
-    iss >> m_lac;
-    iss >> m_cid;
-    iss >> m_psc;
-    iss >> m_speed;
-    iss >> m_satellites;
-    iss >> m_precision1;
-    iss >> m_provider;
-    iss >> m_activity;
+    getline(iss, m_dateTimeS,',');
+    //stripping the "
+    m_dateTimeS.erase(0,1);
+    m_dateTimeS.erase(m_dateTimeS.size()-1,1);
 
 
 
+    getline(iss, temp,',');
+    m_lat = std::stof(temp.c_str());
+
+    getline(iss, temp,',');
+    m_lng = std::stof(temp.c_str());
+
+    getline(iss, temp,',');
+    m_signal_inst = std::atoi(temp.c_str());
+
+    getline(iss, temp,',');
+    m_signal_min = std::atoi(temp.c_str());
+
+    getline(iss, temp,',');
+    m_signal_max = std::atoi(temp.c_str());
+
+    getline(iss, temp,',');
+    m_signal_average = std::atoi(temp.c_str());
+
+    getline(iss, m_carrier,',');
+    if(m_carrier.at(0)=='\"'){
+        m_carrier.erase(0,1);
+        m_carrier.erase(m_carrier.size()-1,1);
+    }
+
+    getline(iss, m_full_carrier,',');
+    if(m_full_carrier.at(0)=='\"'){
+        m_full_carrier.erase(0,1);
+        m_full_carrier.erase(m_full_carrier.size()-1,1);
+    }
+
+    getline(iss, temp,',');
+    m_status = std::atoi(temp.c_str());
+
+    getline(iss, temp,',');
+    m_net = std::atoi(temp.c_str());
+
+    getline(iss, m_net_type,',');
+
+    getline(iss, temp,',');
+    m_lac = std::atoi(temp.c_str());
+
+    getline(iss, temp,',');
+    m_cid = atol(temp.c_str());
+
+    getline(iss, temp,',');
+    m_psc = std::atoi(temp.c_str());
+
+    getline(iss, temp,',');
+    m_speed = std::stof(temp.c_str());
+
+    getline(iss, temp,',');
+    m_satellites = std::atoi(temp.c_str());
+
+    getline(iss, temp,',');
+    m_precision1 = std::atoi(temp.c_str());
+
+    getline(iss, m_provider,',');
+
+    getline(iss, temp,',');
+    m_activity = std::atoi(temp.c_str());
 
 }

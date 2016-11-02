@@ -19,6 +19,7 @@ public:
 private:
     long m_timestamp;
     std::time_t m_dateTime;
+    std::string m_dateTimeS;
     float m_lat;
     float m_lng;
     int m_signal_inst;
@@ -31,7 +32,7 @@ private:
     int m_net;
     std::string m_net_type;
     int m_lac;
-    int m_cid;
+    long m_cid;
     int m_psc;
     float m_speed;
     int m_satellites;

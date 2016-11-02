@@ -32,7 +32,7 @@ std::vector<CellUser> importFromFile (std::string fileLoc){
 }
 
 int main() {
-    std::string file1 = "/Users/richardf/GitHub/ACCD/data_export_cobercat/data_export_01-2016.csv";
+    std::string file1 = "/Users/richardf/GitHub/ACCD/data_export_cobercat/data_export_1-2015.csv";
 
     std::vector<CellUser> first = importFromFile(file1);
 
