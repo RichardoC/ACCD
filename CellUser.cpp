@@ -48,13 +48,13 @@ CellUser::CellUser(std::string line) {
     m_signal_average = std::atoi(temp.c_str());
 
     getline(iss, m_carrier,',');
-    if(m_carrier.at(0)=='\"'){
+    if(m_carrier.size()!= 0 && m_carrier.at(0)=='\"'){
         m_carrier.erase(0,1);
         m_carrier.erase(m_carrier.size()-1,1);
     }
 
     getline(iss, m_full_carrier,',');
-    if(m_full_carrier.at(0)=='\"'){
+    if(m_full_carrier.size()!= 0 && m_full_carrier.at(0)=='\"'){
         m_full_carrier.erase(0,1);
         m_full_carrier.erase(m_full_carrier.size()-1,1);
     }
